@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Tasks from "./components/Tasks/Tasks";
 import { useState } from "react";
 import uuid from "react-uuid";
+import "./App.scss";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -44,13 +45,15 @@ function App() {
   return (
     <div>
       <Header />
-      <Tasks
-        tasks={tasks}
-        onStatusChange={handleStatusChange}
-        onTaskRemove={handleRemoveTask}
-        onClearTasks={handleClearTasks}
-      />
-      <Form OnAddTask={handleAddTask} />
+      <div className="bodyWrapper">
+        <Tasks
+          tasks={tasks}
+          onStatusChange={handleStatusChange}
+          onTaskRemove={handleRemoveTask}
+          onClearTasks={handleClearTasks}
+        />
+        <Form OnAddTask={handleAddTask} />
+      </div>
     </div>
   );
 }

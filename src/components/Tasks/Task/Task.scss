@@ -1,0 +1,42 @@
+@import "../../resets";
+@import "../../variables";
+
+.icon {
+  margin-top: 2px;
+}
+
+.taskCard {
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: $secondary-color;
+  width: 90%;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: #e7e7f3 2px solid;
+  border-radius: 2px;
+
+  .line-through {
+    text-decoration: line-through;
+  }
+  .Completed {
+    color: #20af29;
+    font-weight: 600;
+  }
+
+  .cardActions {
+    border-top: #e7e7f3 2px solid;
+    padding-top: 10px;
+    .changeStatus {
+      text-decoration: none;
+      color: $secondary-color;
+    }
+
+    .deleteTask {
+      text-decoration: none;
+      color: #ff0400;
+      padding-left: 5%;
+    }
+  }
+}

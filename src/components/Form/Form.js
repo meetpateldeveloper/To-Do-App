@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./Form.scss";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 function Form({ OnAddTask }) {
   const [description, setDescription] = useState("");
@@ -23,27 +25,39 @@ function Form({ OnAddTask }) {
     }
   };
   return (
-    <form onSubmit={processForm}>
-      <h2>Add a new task:</h2>
-      <label>
-        Description:
-        <input
-          type="text"
-          maxLength={150}
-          value={description}
-          onChange={handleDescription}
-        ></input>
-      </label>
+    <form className="form" onSubmit={processForm}>
+      <h1>Add a new task:</h1>
+      <div className="formContainer">
+        <label>
+          Description:
+          <input
+            type="text"
+            maxLength={150}
+            value={description}
+            onChange={handleDescription}
+          ></input>
+        </label>
+        {isDescEmpty && <p className="errorMessage">Enter a description</p>}
 
-      <label>
-        Status:
-        <select value={status} onChange={handleStatus}>
-          <option value="Open">Open</option>
-          <option value="Completed">Completed</option>
-        </select>
-      </label>
-      <button type="submit">Add</button>
-      {isDescEmpty && <h2>Enter a description</h2>}
+        <label>
+          Status:
+          <select className="dropdown" value={status} onChange={handleStatus}>
+            <option className="option" value="Open">
+              Open
+            </option>
+            <option className="option" value="Completed">
+              Completed
+            </option>
+          </select>
+        </label>
+        <button type="submit">
+          <IoMdAddCircleOutline
+            size={20}
+            style={{ marginBottom: -3, marginRight: 5 }}
+          />
+          Add
+        </button>
+      </div>
     </form>
   );
 }

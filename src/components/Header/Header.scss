@@ -1,0 +1,22 @@
+@import "../variables";
+
+@mixin flex($align-items: center, $justify: space-between) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify;
+}
+
+header {
+  width: 93%;
+  margin: auto;
+  @include flex();
+  height: 5rem;
+  padding: 0px 30px;
+  background-color: $primary-color;
+
+  .title {
+    font-size: 2.8rem;
+  }
+  .author {
+  }
+}
